@@ -1,0 +1,262 @@
+=========================================================
+  GHI CHÚ ĐỌC PAPER - IMAGEBIND
+  "One Embedding Space To Bind Them All"
+  Girdhar et al., Meta AI, 2023
+  arXiv: 2305.05665v2
+=========================================================
+
+=========================================================
+1. Y TUONG CHINH (doc xong hieu ngay)
+=========================================================
+
+- Van de: muon hoc 1 embedding space chung cho NHIEU modality
+  (anh, text, am thanh, do sau, nhiet do, IMU)
+  nhung khong co du du lieu co tat ca modality cung 1 luc
+
+- Giai phap cua ImageBind:
+  dung IMAGE lam "cau noi" (anchor)
+  -> chi can co cap (image, X) la du train modality X
+  -> vi du: co (image, audio), (image, depth) rieng le
+     => tu dong sinh ra alignment giua (audio, depth) ma khong can train truc tiep
+  
+  => goi la "emergent alignment" (alignment noi sinh)
+
+- Tai sao image lam anchor duoc?
+  Image xuat hien tu nhien kem voi nhieu thu:
+    + web data: (image, text) -> hang ty cap
+    + video: (video, audio) -> co san
+    + sensor: (image, depth), (image, thermal)
+    + camera deo: (video, IMU)
+  => Image la "trung gian" ket noi tat ca
+
+=========================================================
+2. KIEN TRUC (ve hinh la ro nhat)
+=========================================================
+
+6 modality dau vao:
+  [Image/Video] [Text] [Audio] [Depth] [Thermal] [IMU]
+       |            |      |       |        |       |
+   Encoder_I   Enc_T  Enc_A  Enc_D  Enc_Th  Enc_IMU
+       |            |      |       |        |       |
+   Linear proj head (moi modality 1 cai)
+       |            |      |       |        |       |
+       +------------+------+-------+--------+-------+
+                    JOINT EMBEDDING SPACE (chung)
+
+Chi tiet encoder:
+  - Image/Video: Vision Transformer (ViT) - dung chung 1 encoder
+    Video dung 2-frame clips lay tu 2 giay
+  - Text: Transformer (theo CLIP)
+  - Audio: chuyen sang mel-spectrogram (128 bins, 2 giay, 16kHz)
+           roi dung ViT (patch 16, stride 10) vi spectrogram cung la 2D
+  - Depth: 1-channel image -> ViT-S
+  - Thermal: 1-channel image -> ViT-B
+  - IMU: 1D conv kernel=8 -> Transformer (6 layers)
+
+Quan trong:
+  - Image + Text encoder: LAY TU PRETRAINED OpenCLIP (dong bang, khong train)
+  - Audio, Depth, Thermal, IMU encoder: TRAIN TU DAU
+  - Moi encoder co 1 linear projection head rieng
+    (linear tot hon MLP - ket qua ablation cho thay vay)
+
+=========================================================
+3. LOSS FUNCTION (phan toan - quan trong cho bao cao)
+=========================================================
+
+Dung InfoNCE loss (contrastive loss):
+
+  L(I, M) = -log [ exp(qi^T * ki / tau) ]
+                  [ --------------------------------- ]
+                  [ exp(qi^T * ki / tau) + sum_{j!=i} exp(qi^T * kj / tau) ]
+
+Giai thich tung phan:
+  qi = f(Ii)  : embedding cua image i  (encoder f)
+  ki = g(Mi)  : embedding cua modality M tuong ung (encoder g)
+  tau         : temperature (dieu chinh do "mem" cua softmax)
+  j != i      : cac mau KHAC trong mini-batch (goi la "negatives")
+
+y nghia loss:
+  - Muon qi va ki (cap dung) GANG NHAU trong embedding space
+  - Muon qi va kj (cap sai)  XA NHAU
+  - tau nho => phan biet cang ro (nhung kho train hon)
+  - tau lon => mem hon, de train hon
+
+Trong thuc te dung SYMMETRIC loss:
+  L_final = L(I,M) + L(M,I)
+  (tinh ca 2 chieu: image predict modality va modality predict image)
+
+Ket qua ablation ve temperature:
+  - Audio:   tau = 0.05 tot nhat
+  - Depth:   tau = 1.0  tot nhat
+  - Thermal: tau cao hon tot hon
+  => FIXED temperature tot hon learnable temperature (khac voi CLIP)
+
+=========================================================
+4. DU LIEU TRAINING
+=========================================================
+
+Cap du lieu dung de train:
+  (image, text)    -> web-scale data (hang ty cap) - tu OpenCLIP
+  (video, audio)   -> Audioset (2M video YouTube)
+  (image, depth)   -> SUN RGB-D (~5K cap, nhan len 50x)
+  (image, thermal) -> LLVIP (12K cap, nhan len 25x)
+  (video, IMU)     -> Ego4D (egocentric camera co IMU)
+
+Luu y: KHONG can tat ca modality cung 1 luc
+        Chi can tung cap (image, X) la du
+
+=========================================================
+5. KET QUA THAM KHAO (de so sanh trong bao cao)
+=========================================================
+
+Zero-shot classification (Table 2 trong paper):
+
+  Dataset     | Task           | ImageBind | So sanh
+  ------------|----------------|-----------|------------------
+  ESC-50      | Audio cls      | 66.9%     | AudioCLIP: 68.6% (co train audio-text)
+  SUN-D       | Depth cls      | 35.1%     | -
+  NYU-D       | Depth cls      | 54.0%     | -
+  Ego4D       | IMU cls        | 25.0%     | -
+  LLVIP       | Thermal cls    | 63.4%     | -
+  ImageNet    | Image cls      | 77.7%     | (init tu OpenCLIP)
+
+Audio retrieval - Text->Audio (Table 3):
+  Clotho  R@1:  ImageBind 6.0%  vs  AVFIC 3.0%  (ImageBind gap doi)
+  AudioCaps R@1: ImageBind 9.3% vs  AVFIC 8.7%
+
+=> ImageBind dat ket qua tot MA KHONG DUNG audio-text supervision truc tiep
+
+=========================================================
+6. ABLATION STUDY - NHUNG GI NEN BENCHMARK (tuyen tu paper)
+=========================================================
+
+(a) Temperature tau:
+    Nen thu: learnable, 0.05, 0.07, 0.2, 1.0
+    -> Ket qua: fixed tau tot hon learnable
+
+(b) Projection head:
+    Nen thu: Linear vs MLP
+    -> Linear tot hon
+
+(c) So epoch:
+    Nen thu: 16, 32, 64 epochs
+    -> Train lau hon luon tot hon
+
+(d) Data augmentation cho image:
+    Basic (crop + color jitter) vs Strong (+ RandAugment + RandErase)
+    -> Depth: strong tot hon
+    -> Audio: basic tot hon (strong lam giam 34%!)
+
+(e) Batch size:
+    Nen thu: 512, 1K, 2K, 4K
+    -> Audio: 2K tot nhat
+    -> Depth: 512 tot nhat (dataset nho nen batch nho)
+
+(f) Kich thuoc encoder:
+    ViT-S vs ViT-B cho audio/depth encoder
+    -> Audio: ViT-B tot hon
+    -> Depth: ViT-S tot hon (vi dataset nho)
+
+(g) Temporal alignment (audio):
+    Aligned vs Unaligned
+    -> Aligned tot hon
+
+(h) Spatial alignment (depth):
+    Aligned crops vs Random crops
+    -> Aligned hon 10% tren SUN-D
+
+=========================================================
+7. HYPERPARAMETER GOI Y DE TRAIN (Appendix C - Table 9)
+=========================================================
+
+Optimizer: AdamW
+  beta1=0.9, beta2=0.95
+  Warmup: 2 epochs
+  Gradient clipping: 1.0
+
+Audio (Audioset):
+  Embedding dim: 768
+  Heads: 12, Layers: 12
+  Learning rate: 1.6e-3
+  Weight decay: 0.2
+  Batch size: 2048
+  Epochs: 64
+  Temperature: 0.05
+  Aug: frequency masking (12)
+
+Depth (SUN RGB-D):
+  Embedding dim: 384
+  Heads: 8, Layers: 12
+  Learning rate: 1.6e-3
+  Weight decay: 0.2
+  Batch size: 512
+  Epochs: 64
+  Temperature: 0.2
+  Aug: RandErase (p=0.25), RandAugment (9/0.5)
+  Sample replication: 50x (vi dataset nho)
+
+GPU dung: 32GB V100 hoac 40GB A100
+
+=========================================================
+8. DATASET DE DUNG CHO NHOM (goi y thuc te)
+=========================================================
+
+DE TRAIN (nhe, chay duoc tren Colab):
+  -> ESC-50: 2000 clip audio, 50 class (download tu Kaggle)
+     Link: https://github.com/karolpiczak/ESC-50
+  -> SUN RGB-D: ~5K cap (image, depth)
+     Link: https://rgbd.cs.princeton.edu/
+
+DE EVALUATE:
+  -> ESC-50 test fold (400 clip/fold, 5 fold)
+  -> NYU-D: 794 depth map, 10 class
+
+Metrics can do:
+  - Zero-shot accuracy (top-1)
+  - Recall@1, Recall@10 (cho retrieval)
+  - mAP (cho Audioset)
+
+=========================================================
+9. NHUNG DIEM CAN GIAI THICH TRONG BAO CAO
+=========================================================
+
+[Cho phan kien truc - A viet]
+  - Ve so do 6 modality -> encoder -> joint space
+  - Giai thich tai sao dung ViT cho tat ca (ke ca audio)
+  - Linear projection head la gi va tai sao can no
+  - "Frozen" encoder la gi (image + text khong duoc update)
+
+[Cho phan toan - B viet]
+  - Contrastive learning la gi (positive/negative pairs)
+  - Cong thuc InfoNCE (viet day du, giai thich tung ky hieu)
+  - Tai sao dung symmetric loss L(I,M) + L(M,I)
+  - Temperature tau anh huong nhu the nao den training
+  - Emergent alignment: tai sao train (I,M1) + (I,M2) lai co alignment (M1,M2)
+    -> giai thich bang "transitivity": M1~I va M2~I => M1~M2
+
+[De dat 55-60% diem method]
+  - Giai thich DERIVATION cua InfoNCE:
+    xuat phat tu mutual information maximization
+    InfoNCE la lower bound cua mutual information
+  - Tai sao khong dung regression loss thay vi contrastive?
+    (Appendix E: contrastive 31.74% >> regression 25.17%)
+
+=========================================================
+10. TO DO TUAN 1 CUA A (nhac nho)
+=========================================================
+
+[ ] Doc Section 1 (Introduction) - hieu boi canh
+[ ] Doc Section 3 (Method) - quan trong nhat
+[ ] Doc Section 3.3 (Implementation details) - de code
+[ ] Doc Appendix C - hyperparams
+[ ] Ve kien truc bang tay (co Figure 2 trong paper lam mau)
+[ ] Clone repo: https://github.com/facebookresearch/ImageBind
+[ ] Cai moi truong va chay thu demo
+
+=========================================================
+NGUON
+=========================================================
+Paper: https://arxiv.org/abs/2305.05665
+Code:  https://github.com/facebookresearch/ImageBind
+Web:   https://facebookresearch.github.io/ImageBind
+=========================================================
