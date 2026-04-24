@@ -1,0 +1,225 @@
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font-sans); }
+  .tabs { display: flex; gap: 6px; margin-bottom: 20px; flex-wrap: wrap; }
+  .tab { padding: 7px 16px; border-radius: var(--border-radius-md); border: 0.5px solid var(--color-border-secondary); background: transparent; color: var(--color-text-secondary); font-size: 13px; cursor: pointer; transition: all .15s; font-family: var(--font-sans); }
+  .tab.active { background: var(--color-background-secondary); color: var(--color-text-primary); border-color: var(--color-border-primary); font-weight: 500; }
+  .tab:hover:not(.active) { background: var(--color-background-secondary); }
+  .panel { display: none; }
+  .panel.active { display: block; }
+  .section-title { font-size: 13px; font-weight: 500; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 10px; }
+  .card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 14px 16px; margin-bottom: 10px; }
+  .card-title { font-size: 14px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+  .card-sub { font-size: 13px; color: var(--color-text-secondary); line-height: 1.5; }
+  .badge { font-size: 11px; padding: 2px 8px; border-radius: 20px; font-weight: 500; display: inline-block; }
+  .badge-green { background: var(--color-background-success); color: var(--color-text-success); }
+  .badge-amber { background: var(--color-background-warning); color: var(--color-text-warning); }
+  .badge-blue { background: var(--color-background-info); color: var(--color-text-info); }
+  .badge-red { background: var(--color-background-danger); color: var(--color-text-danger); }
+  .badge-gray { background: var(--color-background-secondary); color: var(--color-text-secondary); }
+  .check-row { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 0.5px solid var(--color-border-tertiary); }
+  .check-row:last-child { border-bottom: none; }
+  .check-icon { font-size: 16px; margin-top: 1px; flex-shrink: 0; }
+  .check-content { flex: 1; }
+  .check-title { font-size: 14px; font-weight: 500; color: var(--color-text-primary); }
+  .check-desc { font-size: 12px; color: var(--color-text-secondary); margin-top: 2px; line-height: 1.4; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .stat { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 10px 14px; }
+  .stat-val { font-size: 20px; font-weight: 500; color: var(--color-text-primary); }
+  .stat-lbl { font-size: 11px; color: var(--color-text-secondary); margin-top: 2px; }
+  .tag { font-size: 11px; padding: 2px 7px; border-radius: 4px; background: var(--color-background-secondary); color: var(--color-text-secondary); display: inline-block; margin: 2px 2px 0 0; }
+  .progress-bar { height: 5px; background: var(--color-border-tertiary); border-radius: 3px; margin-top: 6px; overflow: hidden; }
+  .progress-fill { height: 100%; border-radius: 3px; transition: width .3s; }
+  hr { border: none; border-top: 0.5px solid var(--color-border-tertiary); margin: 14px 0; }
+  .warn-box { background: var(--color-background-warning); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 10px 14px; font-size: 13px; color: var(--color-text-warning); margin-bottom: 10px; }
+</style>
+
+<div style="padding: 0.5rem 0">
+  <div style="font-size: 18px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px;">ImageBind — CSC14005 · Topic 17</div>
+  <div style="font-size: 13px; color: var(--color-text-secondary); margin-bottom: 18px;">Research datasets · Checklist tuần 3 & tuần 4</div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="showTab('datasets')">Datasets phù hợp</button>
+    <button class="tab" onclick="showTab('week3')">Tuần 3 — còn sót?</button>
+    <button class="tab" onclick="showTab('week4')">Tuần 4 — đề xuất</button>
+  </div>
+
+  <!-- DATASETS -->
+  <div class="panel active" id="panel-datasets">
+    <div class="warn-box">Dataset hiện tại: <strong>ESC-50</strong> (2000 clips · 50 classes · 5 folds). Đang dùng cho zero-shot audio classification. Các dataset dưới đây phù hợp để mở rộng hoặc benchmark chéo.</div>
+
+    <div class="section-title">Thay thế / Bổ sung cho ESC-50</div>
+
+    <div class="card">
+      <div class="card-title">UrbanSound8K <span class="badge badge-green">Khuyến nghị</span></div>
+      <div class="card-sub">8,732 audio clips · 10 urban sound classes · 4 giây/clip · SR 22kHz. Cùng task audio classification, nhiều mẫu hơn ESC-50 nhưng ít class hơn — dễ benchmark chéo (train ESC-50, test UrbanSound8K zero-shot).</div>
+      <div style="margin-top:8px">
+        <span class="tag">Classification</span><span class="tag">Zero-shot</span><span class="tag">Cross-dataset eval</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" style="width:90%;background:#1D9E75"></div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">AudioCaps <span class="badge badge-blue">Audio-Text pairs</span></div>
+      <div class="card-sub">~46K clips từ AudioSet + text captions do người viết. Cực phù hợp cho ImageBind vì đây là dataset audio-text alignment — giống đúng task của InfoNCE loss. Có thể dùng để eval Recall@K (text→audio retrieval).</div>
+      <div style="margin-top:8px">
+        <span class="tag">Audio-Text</span><span class="tag">Retrieval</span><span class="tag">Captioning</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" style="width:85%;background:#185FA5"></div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">FSD50K <span class="badge badge-amber">Mở rộng</span></div>
+      <div class="card-sub">51,197 clips · 200 sound event classes (Freesound). Nhiều class hơn, khó hơn ESC-50, test độ tổng quát tốt hơn. Annotations được kiểm tra kỹ bởi Freesound. Phù hợp nếu muốn benchmark full evaluate.</div>
+      <div style="margin-top:8px">
+        <span class="tag">Multi-label</span><span class="tag">Large-scale</span><span class="tag">200 classes</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" style="width:70%;background:#BA7517"></div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Clotho <span class="badge badge-gray">Nâng cao</span></div>
+      <div class="card-sub">~6,974 clips · mỗi clip có 5 captions khác nhau. Benchmark chuẩn cho audio captioning và audio-text retrieval. Dùng được cho Recall@1/5/10 — metric phổ biến trong các paper ImageBind / CLAP.</div>
+      <div style="margin-top:8px">
+        <span class="tag">Captioning</span><span class="tag">Recall@K</span><span class="tag">Multi-caption</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" style="width:55%;background:#888780"></div></div>
+    </div>
+
+    <div class="section-title" style="margin-top:16px">Nếu muốn thêm modality (Image+Audio)</div>
+    <div class="card">
+      <div class="card-title">VGGSound <span class="badge badge-gray">Advanced</span></div>
+      <div class="card-sub">~200K video clips · 309 sound classes · có cả video frame. Cho phép test ImageBind đúng nghĩa (image↔audio alignment). Nặng (~500GB) — chỉ dùng subset hoặc trên Kaggle với GPU T4 x2.</div>
+      <div style="margin-top:8px">
+        <span class="tag">Video+Audio</span><span class="tag">Image-Audio align</span><span class="tag">309 classes</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- WEEK 3 -->
+  <div class="panel" id="panel-week3">
+    <div class="section-title">Tuần 3 theo kế hoạch: Benchmark hyperparams · Full evaluate · Vẽ biểu đồ</div>
+
+    <div class="card">
+      <div class="check-row">
+        <div class="check-icon">✅</div>
+        <div class="check-content">
+          <div class="check-title">3.1 Benchmark Temperature τ</div>
+          <div class="check-desc">Đã có code chạy 7 giá trị tau [0.01→1.0], lưu JSON, vẽ bar chart. Xong.</div>
+        </div>
+      </div>
+      <div class="check-row">
+        <div class="check-icon">✅</div>
+        <div class="check-content">
+          <div class="check-title">3.2 Benchmark Epochs</div>
+          <div class="check-desc">Đã load từng checkpoint, chạy eval, so sánh Top-1 theo epoch. Xong.</div>
+        </div>
+      </div>
+      <div class="check-row">
+        <div class="check-icon">✅</div>
+        <div class="check-content">
+          <div class="check-title">3.3 Benchmark Batch Size</div>
+          <div class="check-desc">Chạy 20 steps với bs=[16,32,64], so sánh avg loss. Xong.</div>
+        </div>
+      </div>
+      <div class="check-row">
+        <div class="check-icon">✅</div>
+        <div class="check-content">
+          <div class="check-title">3.4 Vẽ biểu đồ tổng hợp 3-in-1</div>
+          <div class="check-desc">Fig 16×5, 3 subplot: temperature / epoch / batch size. Lưu benchmark_summary.png.</div>
+        </div>
+      </div>
+      <div class="check-row">
+        <div class="check-icon">✅</div>
+        <div class="check-content">
+          <div class="check-title">3.5 Bảng tổng hợp kết quả</div>
+          <div class="check-desc">In training log, top-1 accuracy, best tau, per-class top/bottom 5.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title" style="margin-top:14px">Còn thiếu trong "Full evaluate"</div>
+
+    <div class="card">
+      <div class="check-row">
+        <div class="check-icon">⚠️</div>
+        <div class="check-content">
+          <div class="check-title">Top-5 Accuracy <span class="badge badge-amber" style="margin-left:6px">Thiếu</span></div>
+          <div class="check-desc">Hiện chỉ có Top-1. Thêm Top-5 bằng cách đổi <code>argmax</code> thành <code>topk(5)</code> — 2 dòng code. Quan trọng khi trình bày vì ESC-50 có 50 class.</div>
+        </div>
+      </div>
+      <div class="check-row">
+        <div class="check-icon">⚠️</div>
+        <div class="check-content">
+          <div class="check-title">Benchmark Prompt Template <span class="badge badge-amber" style="margin-left:6px">Thiếu</span></div>
+          <div class="check-desc">Hiện chỉ dùng 1 template: <em>"This is a sound of {class}"</em>. Paper CLIP / AudioCLIP thường test nhiều template. Ví dụ: <em>"{class} sound"</em>, <em>"Sound of {class}"</em>, <em>"An audio recording of {class}"</em> → so sánh Top-1 thay đổi ra sao.</div>
+        </div>
+      </div>
+      <div class="check-row">
+        <div class="check-icon">⚠️</div>
+        <div class="check-content">
+          <div class="check-title">So sánh Pretrained vs Fine-tuned <span class="badge badge-amber" style="margin-left:6px">Quan trọng</span></div>
+          <div class="check-desc">Chưa có cell nào chạy zero-shot với model gốc (chưa fine-tune) để làm baseline. Cần thêm 1 eval với <code>imagebind_huge(pretrained=True)</code> không train → so sánh delta accuracy.</div>
+        </div>
+      </div>
+      <div class="check-row">
+        <div class="check-icon">⚠️</div>
+        <div class="check-content">
+          <div class="check-title">Benchmark Learning Rate <span class="badge badge-gray" style="margin-left:6px">Tùy chọn</span></div>
+          <div class="check-desc">Đã benchmark temperature, epoch, batch size — nhưng chưa có LR sweep. Có thể thêm nhanh với 3 giá trị [1e-4, 1.6e-3, 1e-2] chạy 20 steps mỗi.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WEEK 4 -->
+  <div class="panel" id="panel-week4">
+    <div class="warn-box">Notebook chỉ có kế hoạch 3 tuần — tuần 4 không có trong header. Dưới đây là đề xuất nếu dự án có thêm thời gian hoặc yêu cầu từ GV.</div>
+
+    <div class="section-title">Đề xuất nội dung tuần 4</div>
+
+    <div class="card">
+      <div class="card-title">4.1 Cross-dataset Evaluation <span class="badge badge-green">Nên làm</span></div>
+      <div class="card-sub">Train trên ESC-50 (folds 1-4) → test zero-shot trên <strong>UrbanSound8K</strong>. Đây là bằng chứng tốt nhất về khả năng generalize của model. Cần viết thêm <code>UrbanSound8KDataset</code> tương tự ESC50Dataset.</div>
+      <div style="margin-top:8px"><span class="tag">Generalization</span><span class="tag">Zero-shot transfer</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">4.2 Audio-Text Retrieval (Recall@K) <span class="badge badge-blue">Metric chuẩn</span></div>
+      <div class="card-sub">Thay vì chỉ tính accuracy (classification), tính <strong>Recall@1, R@5, R@10</strong> cho task retrieval: cho 1 audio query → rank tất cả text, xem text đúng có nằm trong top-K không. Đây là metric chính của ImageBind paper.</div>
+      <div style="margin-top:8px"><span class="tag">Retrieval</span><span class="tag">R@1/5/10</span><span class="tag">Paper metric</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">4.3 Embedding Visualization (t-SNE / UMAP) <span class="badge badge-amber">Visual đẹp</span></div>
+      <div class="card-sub">Lấy audio embeddings của toàn bộ test set → giảm chiều bằng <code>UMAP</code> hoặc <code>TSNE</code> → vẽ scatter plot tô màu theo class. Kiểm tra xem các class có tách biệt rõ trong embedding space không. Code ~15 dòng với <code>umap-learn</code>.</div>
+      <div style="margin-top:8px"><span class="tag">Visualization</span><span class="tag">t-SNE</span><span class="tag">UMAP</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">4.4 Error Analysis định tính <span class="badge badge-gray">Báo cáo</span></div>
+      <div class="card-sub">Lấy 10 clip bị predict sai nhất → nghe và giải thích tại sao model nhầm. Ví dụ: "dog" nhầm thành "cat" vì âm thanh tương tự. Phần này giúp báo cáo thuyết phục hơn bằng phân tích định tính.</div>
+      <div style="margin-top:8px"><span class="tag">Qualitative</span><span class="tag">Failure cases</span></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">4.5 Viết báo cáo / README <span class="badge badge-gray">Deadline</span></div>
+      <div class="card-sub">Tổng hợp kết quả tuần 1-3 thành markdown report hoặc PDF: motivation, methodology, results table, benchmark plots, so sánh với paper baseline (66.9%). Bao gồm cả limitations và future work.</div>
+      <div style="margin-top:8px"><span class="tag">Report</span><span class="tag">README</span><span class="tag">Demo</span></div>
+    </div>
+
+    <hr>
+    <div style="font-size:12px;color:var(--color-text-secondary);line-height:1.6">
+      Nếu tuần 4 không bắt buộc, ưu tiên làm theo thứ tự: <strong>4.1 Cross-dataset</strong> → <strong>4.2 Retrieval metrics</strong> → <strong>4.3 UMAP</strong>.
+    </div>
+  </div>
+</div>
+
+<script>
+function showTab(id) {
+  document.querySelectorAll('.tab').forEach((t,i) => t.classList.toggle('active', ['datasets','week3','week4'][i]===id));
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('panel-'+id).classList.add('active');
+}
+</script>
