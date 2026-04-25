@@ -1,0 +1,30 @@
+BÁO CÁO NGẮN: LẦN TRAIN ĐẦU TIÊN IMAGEBIND TRÊN ESC-50
+
+Trong lần train đầu tiên, nhóm sử dụng mô hình ImageBind pretrained như một bộ trích xuất đặc trưng cố định (frozen embedding extractor). Nhóm không fine-tune toàn bộ ImageBind, mà chỉ lấy audio embeddings từ mô hình pretrained rồi train một linear classifier nhỏ phía trên để phân loại âm thanh trên bộ dữ liệu ESC-50.
+
+Cấu hình thí nghiệm:
+- Dataset: ESC-50
+- Số lớp: 50 classes
+- Số epoch: 60
+- Method: frozen ImageBind audio embeddings + linear classifier
+- Checkpoint tốt nhất: checkpoints/best_classifier.pth
+
+Kết quả chính:
+- Random baseline Top-1: 2.0%
+- Best validation accuracy: 90.5%
+- Test Top-1 accuracy: 84.0%
+- Test Top-5 accuracy: 95.5%
+
+Kết quả cho thấy audio embeddings của ImageBind có chất lượng tốt cho bài toán phân loại âm thanh. Mô hình học rất nhanh trong các epoch đầu: validation accuracy tăng từ 8.75% ở epoch 0 lên 83.5% ở epoch 3, và đạt best validation accuracy 90.5% tại epoch 15. Sau đó, accuracy gần như ổn định quanh 89–90%, trong khi train accuracy tiến gần 100%, cho thấy mô hình đã hội tụ và có dấu hiệu overfit nhẹ nếu train quá lâu.
+
+Ngoài classification, nhóm cũng kiểm tra cross-modal retrieval giữa audio và text. Kết quả retrieval đạt:
+- Audio → Text: R@1 = 59.5%, R@5 = 83.0%, R@10 = 90.0%
+- Text → Audio: R@1 = 66.0%, R@5 = 96.0%, R@10 = 96.0%
+
+Demo text-to-audio cho thấy model truy xuất khá tốt với các query như dog barking, rain, crackling fire và ocean waves. Tuy nhiên, một số âm thanh con người như baby crying vẫn có thể bị nhầm với laughing, cho thấy model còn hạn chế ở các class có âm sắc gần nhau.
+
+Nhóm không train ImageBind từ đầu như paper gốc vì việc đó cần dữ liệu đa phương thức ghép cặp ở quy mô rất lớn, ví dụ image-text, video-audio, image-depth, image-thermal và video-IMU, đồng thời cần tài nguyên GPU rất mạnh. Trong phạm vi đồ án và giới hạn GPU của Kaggle, việc train full model là không khả thi. Vì vậy, nhóm sử dụng pretrained ImageBind làm feature extractor cố định và chỉ train một classifier nhỏ trên ESC-50. Cách làm này nhẹ hơn, dễ tái lập hơn, và vẫn đánh giá được chất lượng representation audio của ImageBind cho downstream task.
+
+Lưu ý khi so sánh với paper: paper ImageBind báo cáo 66.9% Top-1 trên ESC trong setting emergent zero-shot. Kết quả 84.0% Top-1 của nhóm không phải zero-shot giống paper, mà là linear-probe/frozen-feature evaluation sau khi train classifier trên ESC-50 embeddings.
+
+Kết luận: Lần train đầu tiên có thể xem là thành công. Notebook chạy end-to-end, kết quả classification tốt, retrieval có tín hiệu tích cực, và các file output như final_results.json, train_history.json, retrieval_recall.json, confusion_matrix.png, learning_curve.png và demo_text_to_audio.png đủ để đưa vào báo cáo và slide.
