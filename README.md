@@ -8,3 +8,5 @@
 - Dataset5: https://cocodataset.org/#home [demo]
 # Drive
 - https://drive.google.com/drive/folders/1GYkjiIP8ggoA0TrjI64iQfHO0gpa1tdM?usp=sharing
+# Kaggle
+- Imagebind: https://www.kaggle.com/code/hongngctng/imaginebind
