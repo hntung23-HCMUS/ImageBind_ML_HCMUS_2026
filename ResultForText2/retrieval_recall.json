@@ -1,8 +1,18 @@
 {
-  "audio_to_text_R@1": 0.09749999642372131,
-  "audio_to_text_R@5": 0.2849999964237213,
-  "audio_to_text_R@10": 0.5024999976158142,
-  "text_to_audio_R@1": 0.09999999403953552,
-  "text_to_audio_R@5": 0.3400000035762787,
-  "text_to_audio_R@10": 0.5600000023841858
+  "image_to_text": {
+    "R@1": 0.043209876543209874,
+    "R@5": 0.15308641975308643,
+    "R@10": 0.22469135802469137
+  },
+  "text_to_image": {
+    "R@1": 0.03877500617436404,
+    "R@5": 0.1469498641639911,
+    "R@10": 0.23511978266238578
+  },
+  "num_test_caption_pairs": 4049,
+  "num_test_images": 810,
+  "dataset": "Flickr8k",
+  "model": "Simplified ImageBind-style image-text contrastive learning on Flickr8k",
+  "epochs": 5,
+  "temperature": 0.07
 }

@@ -1,54 +1,50 @@
 [
   {
     "temperature": 0.05,
-    "classification_ce": 3.743837356567383,
-    "test_top1": 0.09749999642372131,
-    "test_top5": 0.2849999964237213,
-    "note": "Scalar temperature changes CE but not ranking order.",
-    "audio_to_text_R@1": 0.09749999642372131,
-    "audio_to_text_R@5": 0.2849999964237213,
-    "audio_to_text_R@10": 0.5024999976158142,
-    "text_to_audio_R@1": 0.09999999403953552,
-    "text_to_audio_R@5": 0.3400000035762787,
-    "text_to_audio_R@10": 0.5600000023841858
+    "train_loss": 3.431237554550171,
+    "seconds": 13.34,
+    "batches": 100,
+    "image_to_text": {
+      "R@1": 0.003703703703703704,
+      "R@5": 0.011111111111111112,
+      "R@10": 0.03209876543209877
+    },
+    "text_to_image": {
+      "R@1": 0.0032106693010619906,
+      "R@5": 0.018276117559891333,
+      "R@10": 0.03605828599654236
+    }
   },
   {
     "temperature": 0.07,
-    "classification_ce": 3.572713613510132,
-    "test_top1": 0.09749999642372131,
-    "test_top5": 0.2849999964237213,
-    "note": "Scalar temperature changes CE but not ranking order.",
-    "audio_to_text_R@1": 0.09749999642372131,
-    "audio_to_text_R@5": 0.2849999964237213,
-    "audio_to_text_R@10": 0.5024999976158142,
-    "text_to_audio_R@1": 0.09999999403953552,
-    "text_to_audio_R@5": 0.3400000035762787,
-    "text_to_audio_R@10": 0.5600000023841858
+    "train_loss": 3.385186948776245,
+    "seconds": 13.16,
+    "batches": 100,
+    "image_to_text": {
+      "R@1": 0.006172839506172839,
+      "R@5": 0.013580246913580247,
+      "R@10": 0.025925925925925925
+    },
+    "text_to_image": {
+      "R@1": 0.005186465794023216,
+      "R@5": 0.016300321066930107,
+      "R@10": 0.030624845640898988
+    }
   },
   {
     "temperature": 0.1,
-    "classification_ce": 3.539318799972534,
-    "test_top1": 0.09749999642372131,
-    "test_top5": 0.2849999964237213,
-    "note": "Scalar temperature changes CE but not ranking order.",
-    "audio_to_text_R@1": 0.09749999642372131,
-    "audio_to_text_R@5": 0.2849999964237213,
-    "audio_to_text_R@10": 0.5024999976158142,
-    "text_to_audio_R@1": 0.09999999403953552,
-    "text_to_audio_R@5": 0.3400000035762787,
-    "text_to_audio_R@10": 0.5600000023841858
-  },
-  {
-    "temperature": 0.2,
-    "classification_ce": 3.6349592208862305,
-    "test_top1": 0.09749999642372131,
-    "test_top5": 0.2849999964237213,
-    "note": "Scalar temperature changes CE but not ranking order.",
-    "audio_to_text_R@1": 0.09749999642372131,
-    "audio_to_text_R@5": 0.2849999964237213,
-    "audio_to_text_R@10": 0.5024999976158142,
-    "text_to_audio_R@1": 0.09999999403953552,
-    "text_to_audio_R@5": 0.3400000035762787,
-    "text_to_audio_R@10": 0.5600000023841858
+    "train_loss": 3.37917396068573,
+    "seconds": 12.99,
+    "batches": 100,
+    "image_to_text": {
+      "R@1": 0.003703703703703704,
+      "R@5": 0.014814814814814815,
+      "R@10": 0.02962962962962963
+    },
+    "text_to_image": {
+      "R@1": 0.001975796492961225,
+      "R@5": 0.01753519387503087,
+      "R@10": 0.034576438626821436
+    }
   }
 ]

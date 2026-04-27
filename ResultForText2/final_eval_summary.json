@@ -1,26 +1,17 @@
 {
-  "dataset": "ESC-50",
-  "modality": "Audio-Text",
-  "model_name": "FullScratchImageBindAudioText",
+  "dataset": "Flickr8k",
+  "modality": "Image-Text",
+  "model_name": "ImageTextContrastiveModel",
   "train_from_scratch": true,
   "pretrained_weights": false,
-  "epochs": 1,
+  "epochs": 5,
   "loss": "symmetric InfoNCE / contrastive loss",
-  "main_metrics": {
-    "test_top1": 0.0975,
-    "test_top5": 0.285,
-    "audio_to_text_R@1": 0.09749999642372131,
-    "audio_to_text_R@5": 0.2849999964237213,
-    "audio_to_text_R@10": 0.5024999976158142,
-    "text_to_audio_R@1": 0.09999999403953552,
-    "text_to_audio_R@5": 0.3400000035762787,
-    "text_to_audio_R@10": 0.5600000023841858
-  },
-  "ablation_status": "ADDED_BY_RUBRIC_ADDON",
-  "limitation": "Only fold 5 is evaluated in this notebook; the full ESC-50 protocol is a 5-fold average.",
+  "main_metrics": {},
+  "ablation_status": "PRESENT_OR_STANDARDIZED",
+  "limitation": "Baseline run uses 5 epochs; convergence trend is still lightweight because scratch encoders remain small.",
   "sources": {
     "eval": null,
-    "retrieval": null,
+    "ablation": null,
     "history": null
   }
 }

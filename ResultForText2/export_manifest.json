@@ -1,41 +1,41 @@
 [
   {
-    "source": "/kaggle/working/ResultForSound1/train_history.json",
+    "source": "/kaggle/working/outputs/flickr8k_train_history.json",
     "dest": "/kaggle/working/ResultForText2/train_history.json",
     "status": "COPIED"
   },
   {
-    "source": "/kaggle/working/ResultForSound1/eval_results.json",
+    "source": "/kaggle/working/outputs/flickr8k_eval_results.json",
     "dest": "/kaggle/working/ResultForText2/eval_results.json",
     "status": "COPIED"
   },
   {
-    "source": "/kaggle/working/ResultForSound1/final_eval_summary.json",
+    "source": "/kaggle/working/imagebind_rubric_outputs/02_flickr8k_text/final_eval_summary.json",
     "dest": "/kaggle/working/ResultForText2/final_eval_summary.json",
     "status": "COPIED"
   },
   {
-    "source": "/kaggle/working/ResultForSound1/retrieval_recall.json",
+    "source": "/kaggle/working/outputs/flickr8k_eval_results.json",
     "dest": "/kaggle/working/ResultForText2/retrieval_recall.json",
     "status": "COPIED"
   },
   {
-    "source": "/kaggle/working/ResultForSound1/ablation_summary.json",
+    "source": "/kaggle/working/imagebind_rubric_outputs/02_flickr8k_text/ablation_summary.json",
     "dest": "/kaggle/working/ResultForText2/ablation_summary.json",
     "status": "COPIED"
   },
   {
-    "source": "/kaggle/working/ResultForSound1/learning_curve.png",
+    "source": "/kaggle/working/imagebind_rubric_outputs/02_flickr8k_text/learning_curve.png",
     "dest": "/kaggle/working/ResultForText2/learning_curve.png",
     "status": "COPIED"
   },
   {
-    "source": "/kaggle/working/ResultForSound1/report.txt",
+    "source": "/kaggle/working/imagebind_rubric_outputs/02_flickr8k_text/flickr8k_rubric_report.txt",
     "dest": "/kaggle/working/ResultForText2/report.txt",
     "status": "COPIED"
   },
   {
-    "source": "/kaggle/working/ResultForSound1/rubric_report.txt",
+    "source": "/kaggle/working/imagebind_rubric_outputs/02_flickr8k_text/flickr8k_rubric_report.txt",
     "dest": "/kaggle/working/ResultForText2/rubric_report.txt",
     "status": "COPIED"
   },

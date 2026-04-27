@@ -1,18 +1,9 @@
-ESC-50 rubric addon report
-===========================
-Overview: audio-text ImageBind-style scratch training on ESC-50.
-Method: audio log-mel input is encoded and aligned with learned class text embeddings using symmetric InfoNCE. ImageBind's core idea is a shared embedding space; this mini version uses audio-text pairs/classes instead of web-scale pretrained encoders.
-Implementation: train_from_scratch=True, pretrained_weights=False, epochs=1.
-Evaluation: {
-  "test_top1": 0.0975,
-  "test_top5": 0.285,
-  "audio_to_text_R@1": 0.09749999642372131,
-  "audio_to_text_R@5": 0.2849999964237213,
-  "audio_to_text_R@10": 0.5024999976158142,
-  "text_to_audio_R@1": 0.09999999403953552,
-  "text_to_audio_R@5": 0.3400000035762787,
-  "text_to_audio_R@10": 0.5600000023841858
-}
-Ablation: temperature sweep saved to esc50_ablation_temperature.json. Prompt template benchmark is marked NOT_RUN because the text side is a learned class embedding table, not a tokenized prompt encoder.
-Limitations: Only fold 5 was evaluated; full ESC-50 protocol is 5-fold average. Small scratch model can overfit.
-Future work: 5-fold evaluation, stronger augmentations, tokenized text encoder, longer training, and full multimodal contrastive alignment.
+Flickr8k rubric addon report
+============================
+Overview: image-text contrastive retrieval on Flickr8k.
+Method: image and caption encoders are trained from scratch and projected into a shared embedding space using symmetric InfoNCE. This follows the ImageBind idea at mini scale: paired modalities are pulled together and in-batch negatives are pushed apart.
+Implementation: train_from_scratch=True, pretrained_weights=False, epochs=5.
+Evaluation: {}
+Ablation: standardized to flickr8k_ablation_summary.json and ablation_summary.png when temperature results are available.
+Limitations: Baseline run uses 5 epochs, but scratch encoders are still expected to underperform pretrained CLIP/ImageBind.
+Future work: longer training, projection head ablation, hard negatives, pretrained comparison, and stronger augmentation.
