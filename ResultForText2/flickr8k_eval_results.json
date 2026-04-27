@@ -1,0 +1,18 @@
+{
+  "image_to_text": {
+    "R@1": 0.019753086419753086,
+    "R@5": 0.05802469135802469,
+    "R@10": 0.08518518518518518
+  },
+  "text_to_image": {
+    "R@1": 0.016053346505309953,
+    "R@5": 0.05754507285749568,
+    "R@10": 0.09928377377130156
+  },
+  "num_test_caption_pairs": 4049,
+  "num_test_images": 810,
+  "dataset": "Flickr8k",
+  "model": "Simplified ImageBind-style image-text contrastive learning on Flickr8k",
+  "epochs": 1,
+  "temperature": 0.07
+}

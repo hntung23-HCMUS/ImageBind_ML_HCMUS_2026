@@ -1,0 +1,52 @@
+03_llvip_thermal.ipynb report
+
+Dataset summary
+- Root: /kaggle/input/datasets
+- Total visible-thermal pairs: 15488
+- Train pairs: 9620
+- Validation pairs: 5868
+
+Model summary
+- Simplified ImageBind-style visible-thermal dual encoder
+- Visible image is the image anchor
+- Backbone: resnet18
+- Embedding dim: 256
+- Freeze image encoder: False
+
+Training config
+- Epochs: 10
+- Batch size: 32
+- LR: 0.0003
+- Weight decay: 0.0001
+- Temperature: 0.1
+- Device: cuda
+
+Best epoch
+- Best epoch: 6
+- Best val loss: 1.548236385851225
+
+Final retrieval metrics
+image_to_thermal_R@1: 0.3384458124637604
+image_to_thermal_R@5: 0.5316973328590393
+image_to_thermal_R@10: 0.6061690449714661
+thermal_to_image_R@1: 0.3462849259376526
+thermal_to_image_R@5: 0.5349352359771729
+thermal_to_image_R@10: 0.60429447889328
+num_val_pairs: 5868
+
+Optional binary classification metrics
+accuracy: 0.7949709864603481
+top1: 0.7949709864603481
+num_val_crops: 517
+confusion_matrix: [[194, 74], [32, 217]]
+
+Notes
+- Visible image is used as the anchor.
+- Thermal is aligned into the same embedding space by symmetric InfoNCE.
+- Results may be limited by dataset size, augmentations, batch size, and Kaggle GPU limits.
+
+Future work
+- Train longer.
+- Use ViT instead of ResNet.
+- Use OpenCLIP/ImageBind pretrained image encoder.
+- Improve annotation parsing for person/background classification.

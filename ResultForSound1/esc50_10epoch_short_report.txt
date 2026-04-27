@@ -1,0 +1,64 @@
+BAO CAO NGAN - KET QUA ESC-50 (10 EPOCHS)
+============================================================
+
+1. Thiet lap thi nghiem
+- Dataset: ESC-50, bai toan phan loai am thanh moi truong voi 50 lop.
+- Mo hinh: Full ImageBind-style scratch audio-text model.
+- Cach train: train from scratch, khong dung pretrained weights.
+- So epoch: 10.
+- Test fold: fold 5.
+- Output da doc: train_history.json, eval_results.json, retrieval_recall.json, learning_curve.png, confusion_matrix.png.
+
+2. Ket qua training/validation
+- Train loss giam manh tu 2.3353 xuong 0.7509 sau 10 epoch.
+- Train top-1 tang tu 25.17% len 67.82%.
+- Validation top-1 tang nhe tu 16.35% len 22.60%.
+- Validation top-1 tot nhat dat 24.28% tai epoch 7.
+- Validation loss khong giam on dinh, dao dong quanh 2.37-2.59.
+
+Nhan xet: Mo hinh hoc rat tot tren tap train, nhung validation tang cham va co khoang cach lon voi train accuracy. Dieu nay cho thay hien tuong overfitting, kha nang do dataset nho, model train from scratch va chi train 10 epoch.
+
+3. Ket qua test
+- Test Top-1 Accuracy: 29.25%.
+- Test Top-5 Accuracy: 65.50%.
+
+Ket qua nay cao hon muc doan ngau nhien cua ESC-50 (khoang 2% voi 50 lop), cho thay mo hinh da hoc duoc lien ket audio-text co y nghia. Tuy nhien, so voi ImageBind goc tren ESC-50 trong paper, ket qua van thap do ban nay train from scratch, khong dung pretrained encoder va chi train trong 10 epoch.
+
+4. Ket qua retrieval
+- Audio -> Text:
+  + Recall@1: 29.25%
+  + Recall@5: 65.50%
+  + Recall@10: 81.50%
+- Text -> Audio:
+  + Recall@1: 40.00%
+  + Recall@5: 78.00%
+  + Recall@10: 92.00%
+
+Nhan xet: Text -> Audio co ket qua tot hon Audio -> Text, dac biet R@10 dat 92.00%. Dieu nay cho thay embedding space da co kha nang xep hang dung cac cap audio-text trong top-K, du Top-1 classification chua cao.
+
+5. Phan tich theo lop
+- Cac lop tot nhat:
+  + rooster: 75.00%
+  + sea_waves: 75.00%
+  + toilet_flush: 75.00%
+  + glass_breaking: 62.50%
+  + sneezing: 62.50%
+  + thunderstorm: 62.50%
+- Cac lop yeu nhat:
+  + breathing: 0.00%
+  + drinking_sipping: 0.00%
+  + hand_saw: 0.00%
+  + insects: 0.00%
+  + laughing: 0.00%
+  + washing_machine: 0.00%
+  + water_drops: 0.00%
+
+Nhan xet: Mo hinh nhan dien tot hon voi cac am thanh co dac trung ro va de phan biet nhu rooster, sea_waves, toilet_flush, thunderstorm. Cac lop am thanh nho, gan nhau hoac it dac trung nhu breathing, drinking_sipping, water_drops bi nham lan nhieu.
+
+6. Nhan xet tu bieu do
+- Learning curve cho thay train loss giam deu, nhung validation loss khong giam theo.
+- Train accuracy tang lien tuc, trong khi validation accuracy gan nhu dung lai quanh 22-24%.
+- Confusion matrix co duong cheo dung o mot so lop, nhung loi du doan con phan tan tren nhieu lop.
+
+7. Ket luan ngan
+Ket qua ESC-50 10 epoch cho thay pipeline ImageBind-style audio-text da chay duoc va hoc duoc embedding co y nghia. Test Top-1 dat 29.25% va Top-5 dat 65.50%, retrieval R@10 dat 81.50% cho Audio -> Text va 92.00% cho Text -> Audio. Diem han che chinh la overfitting va kha nang tong quat hoa con thap do train from scratch tren dataset nho. De cai thien, nen dung pretrained encoder, tang so epoch kem early stopping, dung prompt templates da dang hon, va danh gia day du ca 5 fold cua ESC-50.
