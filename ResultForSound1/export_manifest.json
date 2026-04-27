@@ -1,0 +1,62 @@
+[
+  {
+    "source": "/kaggle/working/ResultForSound1/train_history.json",
+    "dest": "/kaggle/working/ResultForSound1/train_history.json",
+    "status": "ALREADY_IN_PLACE"
+  },
+  {
+    "source": "/kaggle/working/ResultForSound1/eval_results.json",
+    "dest": "/kaggle/working/ResultForSound1/eval_results.json",
+    "status": "ALREADY_IN_PLACE"
+  },
+  {
+    "source": "/kaggle/working/ResultForSound1/final_eval_summary.json",
+    "dest": "/kaggle/working/ResultForSound1/final_eval_summary.json",
+    "status": "ALREADY_IN_PLACE"
+  },
+  {
+    "source": "/kaggle/working/ResultForSound1/retrieval_recall.json",
+    "dest": "/kaggle/working/ResultForSound1/retrieval_recall.json",
+    "status": "ALREADY_IN_PLACE"
+  },
+  {
+    "source": "/kaggle/working/ResultForSound1/ablation_summary.json",
+    "dest": "/kaggle/working/ResultForSound1/ablation_summary.json",
+    "status": "ALREADY_IN_PLACE"
+  },
+  {
+    "source": "/kaggle/working/ResultForSound1/learning_curve.png",
+    "dest": "/kaggle/working/ResultForSound1/learning_curve.png",
+    "status": "ALREADY_IN_PLACE"
+  },
+  {
+    "source": "/kaggle/working/ResultForSound1/confusion_matrix.png",
+    "dest": "/kaggle/working/ResultForSound1/confusion_matrix.png",
+    "status": "ALREADY_IN_PLACE"
+  },
+  {
+    "source": "/kaggle/working/ResultForSound1/report.txt",
+    "dest": "/kaggle/working/ResultForSound1/report.txt",
+    "status": "ALREADY_IN_PLACE"
+  },
+  {
+    "source": "/kaggle/working/ResultForSound1/rubric_report.txt",
+    "dest": "/kaggle/working/ResultForSound1/rubric_report.txt",
+    "status": "ALREADY_IN_PLACE"
+  },
+  {
+    "source": "/kaggle/working/ResultForSound1/esc50_ablation_temperature.json",
+    "dest": "/kaggle/working/ResultForSound1/esc50_ablation_temperature.json",
+    "status": "ALREADY_IN_PLACE"
+  },
+  {
+    "source": "/kaggle/working/ResultForSound1/esc50_prompt_template_ablation.json",
+    "dest": "/kaggle/working/ResultForSound1/esc50_prompt_template_ablation.json",
+    "status": "ALREADY_IN_PLACE"
+  },
+  {
+    "source": "/kaggle/working/ResultForSound1/esc50_recall_bar.png",
+    "dest": "/kaggle/working/ResultForSound1/esc50_recall_bar.png",
+    "status": "ALREADY_IN_PLACE"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "name": "cnn_h128_lr1e-3",
+    "hidden_dim": 128,
+    "lr": 0.001,
+    "epochs": 1,
+    "train_loss": 0.947631713615019,
+    "test_loss": 0.7460450077278354,
+    "test_accuracy": 0.5968781812012216,
+    "macro_f1": 0.5565250732960042
+  },
+  {
+    "name": "cnn_h256_lr1e-3",
+    "hidden_dim": 256,
+    "lr": 0.001,
+    "epochs": 1,
+    "train_loss": 0.8859232069358992,
+    "test_loss": 0.6653676357235309,
+    "test_accuracy": 0.6399728537495758,
+    "macro_f1": 0.5860312339881257
+  },
+  {
+    "name": "cnn_h128_lr3e-4",
+    "hidden_dim": 128,
+    "lr": 0.0003,
+    "epochs": 1,
+    "train_loss": 1.224517218565915,
+    "test_loss": 0.9910239484255946,
+    "test_accuracy": 0.6230064472344757,
+    "macro_f1": 0.5944078442921207
+  }
+]

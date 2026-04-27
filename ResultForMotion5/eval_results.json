@@ -1,0 +1,130 @@
+{
+  "dataset": "UCI HAR",
+  "modality": "Motion/IMU",
+  "input_shape": [
+    6,
+    128
+  ],
+  "train_size": 7352,
+  "test_size": 2947,
+  "test_accuracy": 0.8133695283338989,
+  "macro_f1": 0.8018037066678225,
+  "test_loss": 0.533880050502203,
+  "per_class_accuracy": {
+    "WALKING": 0.9395161290322581,
+    "WALKING_UPSTAIRS": 0.9681528662420382,
+    "WALKING_DOWNSTAIRS": 0.9380952380952381,
+    "SITTING": 0.3014256619144603,
+    "STANDING": 0.849624060150376,
+    "LAYING": 0.8957169459962756
+  },
+  "classification_report": {
+    "WALKING": {
+      "precision": 0.9978586723768736,
+      "recall": 0.9395161290322581,
+      "f1-score": 0.9678089304257529,
+      "support": 496.0
+    },
+    "WALKING_UPSTAIRS": {
+      "precision": 0.9440993788819876,
+      "recall": 0.9681528662420382,
+      "f1-score": 0.9559748427672956,
+      "support": 471.0
+    },
+    "WALKING_DOWNSTAIRS": {
+      "precision": 0.8995433789954338,
+      "recall": 0.9380952380952381,
+      "f1-score": 0.9184149184149184,
+      "support": 420.0
+    },
+    "SITTING": {
+      "precision": 0.9192546583850931,
+      "recall": 0.3014256619144603,
+      "f1-score": 0.4539877300613497,
+      "support": 491.0
+    },
+    "STANDING": {
+      "precision": 0.7118110236220473,
+      "recall": 0.849624060150376,
+      "f1-score": 0.7746358183376179,
+      "support": 532.0
+    },
+    "LAYING": {
+      "precision": 0.6304062909567497,
+      "recall": 0.8957169459962756,
+      "f1-score": 0.74,
+      "support": 537.0
+    },
+    "accuracy": 0.8133695283338989,
+    "macro avg": {
+      "precision": 0.8504955672030309,
+      "recall": 0.8154218169051076,
+      "f1-score": 0.8018037066678225,
+      "support": 2947.0
+    },
+    "weighted avg": {
+      "precision": 0.8435638304065871,
+      "recall": 0.8133695283338989,
+      "f1-score": 0.796886961990014,
+      "support": 2947.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      466,
+      1,
+      29,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      456,
+      15,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      26,
+      394,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      148,
+      134,
+      209
+    ],
+    [
+      0,
+      0,
+      0,
+      7,
+      452,
+      73
+    ],
+    [
+      1,
+      0,
+      0,
+      6,
+      49,
+      481
+    ]
+  ],
+  "class_names": [
+    "WALKING",
+    "WALKING_UPSTAIRS",
+    "WALKING_DOWNSTAIRS",
+    "SITTING",
+    "STANDING",
+    "LAYING"
+  ]
+}

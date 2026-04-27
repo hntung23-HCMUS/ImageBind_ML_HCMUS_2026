@@ -1,0 +1,9 @@
+Flickr8k rubric addon report
+============================
+Overview: image-text contrastive retrieval on Flickr8k.
+Method: image and caption encoders are trained from scratch and projected into a shared embedding space using symmetric InfoNCE. This follows the ImageBind idea at mini scale: paired modalities are pulled together and in-batch negatives are pushed apart.
+Implementation: train_from_scratch=True, pretrained_weights=False, epochs=5.
+Evaluation: {}
+Ablation: standardized to flickr8k_ablation_summary.json and ablation_summary.png when temperature results are available.
+Limitations: Baseline run uses 5 epochs, but scratch encoders are still expected to underperform pretrained CLIP/ImageBind.
+Future work: longer training, projection head ablation, hard negatives, pretrained comparison, and stronger augmentation.

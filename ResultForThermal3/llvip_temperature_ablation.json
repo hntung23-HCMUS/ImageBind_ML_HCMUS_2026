@@ -1,0 +1,38 @@
+[
+  {
+    "temperature": 0.05,
+    "image_to_thermal_R@1": 0.2943081259727478,
+    "image_to_thermal_R@5": 0.47631219029426575,
+    "image_to_thermal_R@10": 0.5565780401229858,
+    "thermal_to_image_R@1": 0.30010226368904114,
+    "thermal_to_image_R@5": 0.4870483875274658,
+    "thermal_to_image_R@10": 0.5615200996398926
+  },
+  {
+    "temperature": 0.1,
+    "image_to_thermal_R@1": 0.2943081259727478,
+    "image_to_thermal_R@5": 0.47631219029426575,
+    "image_to_thermal_R@10": 0.5565780401229858,
+    "thermal_to_image_R@1": 0.30010226368904114,
+    "thermal_to_image_R@5": 0.4870483875274658,
+    "thermal_to_image_R@10": 0.5615200996398926
+  },
+  {
+    "temperature": 0.2,
+    "image_to_thermal_R@1": 0.2943081259727478,
+    "image_to_thermal_R@5": 0.47631219029426575,
+    "image_to_thermal_R@10": 0.5565780401229858,
+    "thermal_to_image_R@1": 0.30010226368904114,
+    "thermal_to_image_R@5": 0.4870483875274658,
+    "thermal_to_image_R@10": 0.5615200996398926
+  },
+  {
+    "temperature": 0.5,
+    "image_to_thermal_R@1": 0.2943081259727478,
+    "image_to_thermal_R@5": 0.47631219029426575,
+    "image_to_thermal_R@10": 0.5565780401229858,
+    "thermal_to_image_R@1": 0.30010226368904114,
+    "thermal_to_image_R@5": 0.4870483875274658,
+    "thermal_to_image_R@10": 0.5615200996398926
+  }
+]

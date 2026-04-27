@@ -1,0 +1,27 @@
+UCI HAR rubric addon report
+===========================
+Overview: Motion/IMU encoder benchmark on raw accelerometer and gyroscope sequences.
+Method: MotionCNN encodes X in R^(6x128) and predicts six activities with CrossEntropy. The encoder embedding is the component that would be connected to an ImageBind-style projection head in a paired multimodal dataset.
+Implementation: train_from_scratch=True, pretrained_weights=False, epochs=5.
+Evaluation: {
+  "accuracy": 0.8133695283338989,
+  "macro_f1": 0.8018037066678225,
+  "per_class_accuracy": {
+    "WALKING": 0.9395161290322581,
+    "WALKING_UPSTAIRS": 0.9681528662420382,
+    "WALKING_DOWNSTAIRS": 0.9380952380952381,
+    "SITTING": 0.3014256619144603,
+    "STANDING": 0.849624060150376,
+    "LAYING": 0.8957169459962756
+  }
+}
+Ablation: standardized to uci_har_ablation_summary.json and ablation_summary.png.
+Prototype proxy: {
+  "status": "OK",
+  "type": "supervised_motion_text_prototype_retrieval_proxy",
+  "top1_accuracy": 0.7940278249066848,
+  "macro_f1": 0.8014077166043853,
+  "note": "Supervised prototype proxy using train class means. This is not image-anchor contrastive ImageBind."
+}
+Limitations: UCI HAR is used as a motion/IMU encoder benchmark. Since the dataset has no paired image/video anchor, it cannot reproduce full ImageBind-style image-anchored contrastive alignment.
+Future work: align IMU embedding with text prompts or video frames using contrastive loss, replace classifier with projection head, and combine with audio/text/depth/thermal notebooks.

@@ -1,9 +1,0 @@
-[
-  {
-    "epoch": 1,
-    "train_loss": 3.0196300733230803,
-    "seconds": 2501.66,
-    "batches": 1012,
-    "temperature": 0.07
-  }
-]

@@ -1,0 +1,82 @@
+[
+  {
+    "source": "/kaggle/working/03_llvip_thermal_outputs/results/llvip_thermal_train_history.json",
+    "dest": "/kaggle/working/ResultForThermal3/train_history.json",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/03_llvip_thermal_outputs/results/llvip_thermal_binary_eval_results.json",
+    "dest": "/kaggle/working/ResultForThermal3/eval_results.json",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/imagebind_rubric_outputs/03_llvip_thermal/final_eval_summary.json",
+    "dest": "/kaggle/working/ResultForThermal3/final_eval_summary.json",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/03_llvip_thermal_outputs/results/llvip_thermal_retrieval_recall.json",
+    "dest": "/kaggle/working/ResultForThermal3/retrieval_recall.json",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/imagebind_rubric_outputs/03_llvip_thermal/ablation_summary.json",
+    "dest": "/kaggle/working/ResultForThermal3/ablation_summary.json",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/03_llvip_thermal_outputs/figures/llvip_thermal_learning_curve.png",
+    "dest": "/kaggle/working/ResultForThermal3/learning_curve.png",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/imagebind_rubric_outputs/03_llvip_thermal/llvip_confusion_matrix.png",
+    "dest": "/kaggle/working/ResultForThermal3/confusion_matrix.png",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/03_llvip_thermal_outputs/03_llvip_thermal_report.txt",
+    "dest": "/kaggle/working/ResultForThermal3/report.txt",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/imagebind_rubric_outputs/03_llvip_thermal/llvip_rubric_report.txt",
+    "dest": "/kaggle/working/ResultForThermal3/rubric_report.txt",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/imagebind_rubric_outputs/03_llvip_thermal/llvip_retrieval_bar.png",
+    "dest": "/kaggle/working/ResultForThermal3/llvip_retrieval_bar.png",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/03_llvip_thermal_outputs/figures/llvip_thermal_retrieval_examples.png",
+    "dest": "/kaggle/working/ResultForThermal3/retrieval_examples.png",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/imagebind_rubric_outputs/03_llvip_thermal/ablation_summary.png",
+    "dest": "/kaggle/working/ResultForThermal3/ablation_summary.png",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/imagebind_rubric_outputs/03_llvip_thermal/llvip_confusion_matrix.png",
+    "dest": "/kaggle/working/ResultForThermal3/llvip_confusion_matrix.png",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/imagebind_rubric_outputs/03_llvip_thermal/llvip_rubric_report.txt",
+    "dest": "/kaggle/working/ResultForThermal3/llvip_rubric_report.txt",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/imagebind_rubric_outputs/03_llvip_thermal/llvip_temperature_ablation.json",
+    "dest": "/kaggle/working/ResultForThermal3/llvip_temperature_ablation.json",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/imagebind_rubric_outputs/03_llvip_thermal/retrieval_bar.png",
+    "dest": "/kaggle/working/ResultForThermal3/retrieval_bar.png",
+    "status": "COPIED"
+  }
+]

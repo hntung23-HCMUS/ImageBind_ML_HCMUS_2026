@@ -1,0 +1,41 @@
+{
+  "dataset": "LLVIP",
+  "modality": "Visible-Thermal",
+  "model_name": "LLVIPThermalBindMini",
+  "train_from_scratch": true,
+  "pretrained_weights": false,
+  "epochs": 5,
+  "loss": "symmetric InfoNCE / contrastive loss",
+  "main_metrics": {
+    "image_to_thermal_R@1": 0.2943081259727478,
+    "image_to_thermal_R@5": 0.47631219029426575,
+    "image_to_thermal_R@10": 0.5565780401229858,
+    "thermal_to_image_R@1": 0.30010226368904114,
+    "thermal_to_image_R@5": 0.4870483875274658,
+    "thermal_to_image_R@10": 0.5615200996398926,
+    "num_val_pairs": 5868.0
+  },
+  "classification_metrics": {
+    "accuracy": 0.8297872340425532,
+    "top1": 0.8297872340425532,
+    "num_val_crops": 517,
+    "confusion_matrix": [
+      [
+        221,
+        47
+      ],
+      [
+        41,
+        208
+      ]
+    ]
+  },
+  "ablation_status": "PRESENT_OR_STANDARDIZED",
+  "limitation": "Retrieval uses paired full validation visible-thermal pairs; optional binary classification uses a parsed crop subset, so num_val_pairs and num_val_crops can differ.",
+  "sources": {
+    "retrieval": null,
+    "binary": null,
+    "ablation": null,
+    "history": null
+  }
+}

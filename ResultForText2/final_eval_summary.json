@@ -1,0 +1,26 @@
+{
+  "dataset": "ESC-50",
+  "modality": "Audio-Text",
+  "model_name": "FullScratchImageBindAudioText",
+  "train_from_scratch": true,
+  "pretrained_weights": false,
+  "epochs": 1,
+  "loss": "symmetric InfoNCE / contrastive loss",
+  "main_metrics": {
+    "test_top1": 0.0975,
+    "test_top5": 0.285,
+    "audio_to_text_R@1": 0.09749999642372131,
+    "audio_to_text_R@5": 0.2849999964237213,
+    "audio_to_text_R@10": 0.5024999976158142,
+    "text_to_audio_R@1": 0.09999999403953552,
+    "text_to_audio_R@5": 0.3400000035762787,
+    "text_to_audio_R@10": 0.5600000023841858
+  },
+  "ablation_status": "ADDED_BY_RUBRIC_ADDON",
+  "limitation": "Only fold 5 is evaluated in this notebook; the full ESC-50 protocol is a 5-fold average.",
+  "sources": {
+    "eval": null,
+    "retrieval": null,
+    "history": null
+  }
+}

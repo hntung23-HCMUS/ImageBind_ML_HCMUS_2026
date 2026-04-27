@@ -1,0 +1,67 @@
+[
+  {
+    "source": "/kaggle/working/uci_har_motion_train_history.json",
+    "dest": "/kaggle/working/ResultForMotion5/train_history.json",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/uci_har_motion_eval_results.json",
+    "dest": "/kaggle/working/ResultForMotion5/eval_results.json",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/imagebind_rubric_outputs/05_uci_har_motion/final_eval_summary.json",
+    "dest": "/kaggle/working/ResultForMotion5/final_eval_summary.json",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/imagebind_rubric_outputs/05_uci_har_motion/ablation_summary.json",
+    "dest": "/kaggle/working/ResultForMotion5/ablation_summary.json",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/uci_har_motion_learning_curve.png",
+    "dest": "/kaggle/working/ResultForMotion5/learning_curve.png",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/imagebind_rubric_outputs/05_uci_har_motion/uci_har_confusion_matrix.png",
+    "dest": "/kaggle/working/ResultForMotion5/confusion_matrix.png",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/uci_har_motion_report.txt",
+    "dest": "/kaggle/working/ResultForMotion5/report.txt",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/imagebind_rubric_outputs/05_uci_har_motion/uci_har_rubric_report.txt",
+    "dest": "/kaggle/working/ResultForMotion5/rubric_report.txt",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/imagebind_rubric_outputs/05_uci_har_motion/motion_text_prototype_proxy.json",
+    "dest": "/kaggle/working/ResultForMotion5/motion_text_prototype_proxy.json",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/imagebind_rubric_outputs/05_uci_har_motion/ablation_summary.png",
+    "dest": "/kaggle/working/ResultForMotion5/ablation_summary.png",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/imagebind_rubric_outputs/05_uci_har_motion/uci_har_ablation_summary.json",
+    "dest": "/kaggle/working/ResultForMotion5/uci_har_ablation_summary.json",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/imagebind_rubric_outputs/05_uci_har_motion/uci_har_confusion_matrix.png",
+    "dest": "/kaggle/working/ResultForMotion5/uci_har_confusion_matrix.png",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/imagebind_rubric_outputs/05_uci_har_motion/uci_har_rubric_report.txt",
+    "dest": "/kaggle/working/ResultForMotion5/uci_har_rubric_report.txt",
+    "status": "COPIED"
+  }
+]

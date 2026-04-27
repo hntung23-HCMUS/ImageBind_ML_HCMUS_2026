@@ -1,0 +1,32 @@
+LLVIP rubric addon report
+=========================
+Overview: visible image to thermal alignment, with visible image as the ImageBind-style anchor.
+Method: visible and thermal encoders project paired images into a shared embedding space. Symmetric InfoNCE aligns thermal samples to visible image anchors and uses other batch samples as negatives.
+Implementation: train_from_scratch=True, pretrained_weights=False for the project mini setting unless the original config explicitly changed it.
+Evaluation: {
+  "image_to_thermal_R@1": 0.2943081259727478,
+  "image_to_thermal_R@5": 0.47631219029426575,
+  "image_to_thermal_R@10": 0.5565780401229858,
+  "thermal_to_image_R@1": 0.30010226368904114,
+  "thermal_to_image_R@5": 0.4870483875274658,
+  "thermal_to_image_R@10": 0.5615200996398926,
+  "num_val_pairs": 5868.0
+}
+Optional classification: {
+  "accuracy": 0.8297872340425532,
+  "top1": 0.8297872340425532,
+  "num_val_crops": 517,
+  "confusion_matrix": [
+    [
+      221,
+      47
+    ],
+    [
+      41,
+      208
+    ]
+  ]
+}
+Ablation: temperature summary saved to llvip_temperature_ablation.json and ablation_summary.json.
+Limitations: retrieval uses paired full validation pairs; binary classification, if available, uses crop subset annotations, so num_val_pairs can differ from num_val_crops.
+Future work: stronger paired augmentations, larger encoders, batch-size ablation, and pretrained-vs-scratch comparison.

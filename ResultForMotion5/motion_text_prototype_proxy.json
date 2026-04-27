@@ -1,0 +1,7 @@
+{
+  "status": "OK",
+  "type": "supervised_motion_text_prototype_retrieval_proxy",
+  "top1_accuracy": 0.7940278249066848,
+  "macro_f1": 0.8014077166043853,
+  "note": "Supervised prototype proxy using train class means. This is not image-anchor contrastive ImageBind."
+}

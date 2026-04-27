@@ -1,0 +1,4 @@
+{
+  "status": "PRESENT",
+  "note": "Original notebook saves qualitative RGB-depth retrieval examples when run end-to-end."
+}

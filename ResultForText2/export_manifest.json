@@ -1,0 +1,77 @@
+[
+  {
+    "source": "/kaggle/working/ResultForSound1/train_history.json",
+    "dest": "/kaggle/working/ResultForText2/train_history.json",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/ResultForSound1/eval_results.json",
+    "dest": "/kaggle/working/ResultForText2/eval_results.json",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/ResultForSound1/final_eval_summary.json",
+    "dest": "/kaggle/working/ResultForText2/final_eval_summary.json",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/ResultForSound1/retrieval_recall.json",
+    "dest": "/kaggle/working/ResultForText2/retrieval_recall.json",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/ResultForSound1/ablation_summary.json",
+    "dest": "/kaggle/working/ResultForText2/ablation_summary.json",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/ResultForSound1/learning_curve.png",
+    "dest": "/kaggle/working/ResultForText2/learning_curve.png",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/ResultForSound1/report.txt",
+    "dest": "/kaggle/working/ResultForText2/report.txt",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/ResultForSound1/rubric_report.txt",
+    "dest": "/kaggle/working/ResultForText2/rubric_report.txt",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/outputs/flickr8k_retrieval_examples.png",
+    "dest": "/kaggle/working/ResultForText2/retrieval_examples.png",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/imagebind_rubric_outputs/02_flickr8k_text/flickr8k_recall_bar.png",
+    "dest": "/kaggle/working/ResultForText2/flickr8k_recall_bar.png",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/imagebind_rubric_outputs/02_flickr8k_text/ablation_summary.png",
+    "dest": "/kaggle/working/ResultForText2/ablation_summary.png",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/imagebind_rubric_outputs/02_flickr8k_text/flickr8k_ablation_summary.json",
+    "dest": "/kaggle/working/ResultForText2/flickr8k_ablation_summary.json",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/imagebind_rubric_outputs/02_flickr8k_text/flickr8k_rubric_report.txt",
+    "dest": "/kaggle/working/ResultForText2/flickr8k_rubric_report.txt",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/imagebind_rubric_outputs/02_flickr8k_text/retrieval_bar.png",
+    "dest": "/kaggle/working/ResultForText2/retrieval_bar.png",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/imagebind_rubric_outputs/02_flickr8k_text/retrieval_examples.txt",
+    "dest": "/kaggle/working/ResultForText2/retrieval_examples.txt",
+    "status": "COPIED"
+  }
+]

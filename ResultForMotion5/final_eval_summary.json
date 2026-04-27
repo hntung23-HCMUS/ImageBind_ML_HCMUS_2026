@@ -1,0 +1,28 @@
+{
+  "dataset": "UCI HAR",
+  "modality": "Motion/IMU",
+  "model_name": "MotionCNN",
+  "train_from_scratch": true,
+  "pretrained_weights": false,
+  "epochs": 5,
+  "loss": "CrossEntropy activity classification",
+  "main_metrics": {
+    "accuracy": 0.8133695283338989,
+    "macro_f1": 0.8018037066678225,
+    "per_class_accuracy": {
+      "WALKING": 0.9395161290322581,
+      "WALKING_UPSTAIRS": 0.9681528662420382,
+      "WALKING_DOWNSTAIRS": 0.9380952380952381,
+      "SITTING": 0.3014256619144603,
+      "STANDING": 0.849624060150376,
+      "LAYING": 0.8957169459962756
+    }
+  },
+  "ablation_status": "PRESENT_OR_STANDARDIZED",
+  "limitation": "UCI HAR is a motion/IMU encoder benchmark. It has no paired image/video anchor, so it cannot reproduce full ImageBind-style image-anchored contrastive alignment.",
+  "sources": {
+    "eval": "/kaggle/working/uci_har_motion_eval_results.json",
+    "ablation": "/kaggle/working/uci_har_motion_ablation.json",
+    "history": "/kaggle/working/uci_har_motion_train_history.json"
+  }
+}

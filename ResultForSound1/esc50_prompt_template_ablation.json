@@ -1,0 +1,27 @@
+[
+  {
+    "template": "a sound of {}",
+    "status": "NOT_RUN",
+    "reason": "Model text side is a learned class embedding table; prompt strings are not tokenized, so changing text templates does not change embeddings."
+  },
+  {
+    "template": "this is a sound of {}",
+    "status": "NOT_RUN",
+    "reason": "Model text side is a learned class embedding table; prompt strings are not tokenized, so changing text templates does not change embeddings."
+  },
+  {
+    "template": "an audio recording of {}",
+    "status": "NOT_RUN",
+    "reason": "Model text side is a learned class embedding table; prompt strings are not tokenized, so changing text templates does not change embeddings."
+  },
+  {
+    "template": "{} sound",
+    "status": "NOT_RUN",
+    "reason": "Model text side is a learned class embedding table; prompt strings are not tokenized, so changing text templates does not change embeddings."
+  },
+  {
+    "template": "the sound of {}",
+    "status": "NOT_RUN",
+    "reason": "Model text side is a learned class embedding table; prompt strings are not tokenized, so changing text templates does not change embeddings."
+  }
+]

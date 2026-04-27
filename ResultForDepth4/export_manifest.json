@@ -1,0 +1,82 @@
+[
+  {
+    "source": "/kaggle/working/nyu_depth_train_history.json",
+    "dest": "/kaggle/working/ResultForDepth4/train_history.json",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/nyu_depth_eval_results.json",
+    "dest": "/kaggle/working/ResultForDepth4/eval_results.json",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/imagebind_rubric_outputs/04_nyu_depth_v2/final_eval_summary.json",
+    "dest": "/kaggle/working/ResultForDepth4/final_eval_summary.json",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/nyu_depth_eval_results.json",
+    "dest": "/kaggle/working/ResultForDepth4/retrieval_recall.json",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/imagebind_rubric_outputs/04_nyu_depth_v2/ablation_summary.json",
+    "dest": "/kaggle/working/ResultForDepth4/ablation_summary.json",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/nyu_depth_learning_curve.png",
+    "dest": "/kaggle/working/ResultForDepth4/learning_curve.png",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/nyu_depth_confusion_matrix.png",
+    "dest": "/kaggle/working/ResultForDepth4/confusion_matrix.png",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/nyu_depth_report.txt",
+    "dest": "/kaggle/working/ResultForDepth4/report.txt",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/imagebind_rubric_outputs/04_nyu_depth_v2/nyu_depth_rubric_report.txt",
+    "dest": "/kaggle/working/ResultForDepth4/rubric_report.txt",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/nyu_depth_retrieval_examples.png",
+    "dest": "/kaggle/working/ResultForDepth4/retrieval_examples.png",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/imagebind_rubric_outputs/04_nyu_depth_v2/nyu_depth_retrieval_bar.png",
+    "dest": "/kaggle/working/ResultForDepth4/nyu_depth_retrieval_bar.png",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/imagebind_rubric_outputs/04_nyu_depth_v2/ablation_summary.png",
+    "dest": "/kaggle/working/ResultForDepth4/ablation_summary.png",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/imagebind_rubric_outputs/04_nyu_depth_v2/nyu_depth_ablation_summary.json",
+    "dest": "/kaggle/working/ResultForDepth4/nyu_depth_ablation_summary.json",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/imagebind_rubric_outputs/04_nyu_depth_v2/nyu_depth_rubric_report.txt",
+    "dest": "/kaggle/working/ResultForDepth4/nyu_depth_rubric_report.txt",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/imagebind_rubric_outputs/04_nyu_depth_v2/retrieval_bar.png",
+    "dest": "/kaggle/working/ResultForDepth4/retrieval_bar.png",
+    "status": "COPIED"
+  },
+  {
+    "source": "/kaggle/working/imagebind_rubric_outputs/04_nyu_depth_v2/retrieval_examples.txt",
+    "dest": "/kaggle/working/ResultForDepth4/retrieval_examples.txt",
+    "status": "COPIED"
+  }
+]

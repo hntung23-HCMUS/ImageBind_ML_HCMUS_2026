@@ -1,0 +1,24 @@
+NYU Depth V2 RGB-Depth ImageBind-style Report
+===============================================
+Dataset: /kaggle/input/datasets/rmzhang0526/nyu-depth-v2-labeled/nyu_depth_v2_labeled.mat
+Modality: RGB-Depth
+Model: Mini ImageBind-style dual CNN encoders with projection heads
+Train from scratch: true
+Pretrained weights: false
+Epochs: 5
+Loss: 3.885887
+Retrieval metrics:
+  Image->Depth R@1:  0.0138
+  Image->Depth R@5:  0.0459
+  Image->Depth R@10: 0.1009
+  Depth->Image R@1:  0.0138
+  Depth->Image R@5:  0.0642
+  Depth->Image R@10: 0.1422
+Classification metrics:
+  Top-1: 0.2294
+  Top-5: 0.7569
+Best temperature from ablation: 0.2
+Short analysis:
+  The model learned image-depth alignment by pulling matched RGB-depth pairs together and pushing in-batch negatives apart.
+  Limitations: the model is intentionally small, trained on a capped subset, and does not use large-scale ImageBind pretraining.
+  Future improvement: train longer, add stronger synchronized augmentations, tune encoder capacity, and include more labeled scene supervision when labels are available.
